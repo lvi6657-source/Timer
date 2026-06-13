@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+    <script>
+      window.addEventListener('error', function(e) {
+        var diagnostics = document.getElementById('error-diagnostics') || document.createElement('div');
+        diagnostics.id = 'error-diagnostics';
+        diagnostics.style = 'position:fixed;bottom:20px;left:20px;right:20px;background:#7f1d1d;color:#fef2f2;padding:15px;border-radius:8px;z-index:999999;font-family:monospace;font-size:12px;max-height:50vh;overflow:auto;box-shadow:0 10px 15px -3px rgba(0,0,0,0.5);border:1px solid #f87171;';
+        diagnostics.innerHTML += '<div><strong>[Error]:</strong> ' + e.message + '<br><small>' + e.filename + ':' + e.lineno + '</small></div>';
+        document.body.appendChild(diagnostics);
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        var diagnostics = document.getElementById('error-diagnostics') || document.createElement('div');
+        diagnostics.id = 'error-diagnostics';
+        diagnostics.style = 'position:fixed;bottom:20px;left:20px;right:20px;background:#7f1d1d;color:#fef2f2;padding:15px;border-radius:8px;z-index:999999;font-family:monospace;font-size:12px;max-height:50vh;overflow:auto;box-shadow:0 10px 15px -3px rgba(0,0,0,0.5);border:1px solid #f87171;';
+        diagnostics.innerHTML += '<div><strong>[Promise Rejection]:</strong> ' + (e.reason ? (e.reason.message || e.reason) : 'No reason') + '</div>';
+        document.body.appendChild(diagnostics);
+      });
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Courier+Prime&family=Cousine&family=Cuprum&family=Exo+2&family=Fira+Code&family=Fira+Mono&family=Fira+Sans+Extra+Condensed&family=Fragment+Mono&family=Geologica&family=IBM+Plex+Mono&family=Inconsolata&family=JetBrains+Mono&family=Jost&family=Jura&family=Kelly+Slab&family=Krona+One&family=Manrope&family=Martian+Mono&family=Monda&family=Noto+Sans+Mono&family=Oswald&family=PT+Mono&family=Play&family=Prosto+One&family=Roboto+Mono&family=Rubik&family=Ruda&family=Russo+One&family=Scada&family=Source+Code+Pro&family=Tektur&family=Ubuntu+Mono&family=Unbounded&family=Victor+Mono&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
